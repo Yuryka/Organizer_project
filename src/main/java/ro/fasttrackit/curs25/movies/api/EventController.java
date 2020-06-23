@@ -5,11 +5,11 @@ import ro.fasttrackit.curs25.movies.domain.Movie;
 import ro.fasttrackit.curs25.movies.service.MovieService;
 
 @RestController
-@RequestMapping("api/movies")
-public class MovieController {
+@RequestMapping("api/organizer")
+public class EventController {
     private final MovieService movieService;
 
-    public MovieController(final MovieService movieService) {
+    public EventController(final MovieService movieService) {
         this.movieService = movieService;
     }
 

@@ -3,6 +3,7 @@ package ro.fasttrackit.curs25.movies.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -11,6 +12,17 @@ public class Event {
     @GeneratedValue
     private Integer id;
     private String note;
+    private Date date;
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+
     //TODO private Date date + private Boolean checked
 
     public Event() {
@@ -57,5 +69,6 @@ public class Event {
                 "id=" + id +
                 ", note= " + note +
                 '}';
+        //TODO cheched,date
     }
 }
