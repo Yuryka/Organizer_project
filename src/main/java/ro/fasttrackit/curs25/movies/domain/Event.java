@@ -11,6 +11,7 @@ public class Event {
     @GeneratedValue
     private Integer id;
     private String note;
+    //TODO private Date date + private Boolean checked
 
     public Event() {
     }
@@ -39,10 +40,10 @@ public class Event {
     public boolean equals(final Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        final Event movie = (Event) o;
+        final Event event = (Event) o;
         return
-                Objects.equals(id, movie.id) &&
-                        Objects.equals(note, movie.note);
+                Objects.equals(id, event.id) &&
+                        Objects.equals(note, event.note);
     }
 
     @Override
@@ -54,7 +55,7 @@ public class Event {
     public String toString() {
         return "Event{" +
                 "id=" + id +
-                ", note='" + note + '\'' +
+                ", note= " + note +
                 '}';
     }
 }
