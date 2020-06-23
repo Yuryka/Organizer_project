@@ -3,8 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Organizer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+
 </head>
 <body>
 this is a test for the organizer page
+<div> my friend is :</div>
+<div data-th-text="${buddy}"></div>
+<div class="container">
+    <div class="d-flex justify-content-end mt-2">
+        <button class="btn btn-secondary" data-toggle="modal" data-target="#addEventModal">Add Event</button>
+    </div>
+    <table class="table table-striped mt-3">
+        <thead>
+        <tr>
+            <th style="background-color:Tomato; border:2px solid Violet;">Note</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-th-each="event : ${events}">
+            <td>
+                <a class="nav-link text-dark" data-th-href="'/events/'+${event.id}" data-th-text="${event.note}"></a>
+            </td>
+            <td>
+                <div data-th-id="${event.id}" style="cursor: pointer">
+                    <i class="fas fa-edit mr-2" data-target="#addEventModal" data-toggle="modal"></i>
+                    <i class="fas fa-trash-alt"></i>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
