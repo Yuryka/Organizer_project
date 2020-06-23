@@ -3,20 +3,14 @@ package ro.fasttrackit.curs25.movies.web;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import ro.fasttrackit.curs25.movies.domain.Event;
-import ro.fasttrackit.curs25.movies.domain.Movie;
-import ro.fasttrackit.curs25.movies.service.MovieService;
-
-import java.util.List;
-import java.util.Optional;
+import ro.fasttrackit.curs25.movies.service.EventService;
 
 @Controller
 public class EventUIController {
-    private final MovieService movieService;
+    private final EventService localEventService;
 
-    public EventUIController(final MovieService movieService) {
-        this.movieService = movieService;
+    public EventUIController(final EventService eventService) {
+        this.localEventService = eventService;
     }
 
     //TODO uncomment after movieuicontroller is deleted
@@ -27,9 +21,7 @@ public class EventUIController {
 
     @GetMapping("organizer")
     public String organizerPage(Model pageModel) {
-       pageModel.addAttribute("buddy", "jeno");
-       List<Event> list = List.of( new Event("test 1"), new Event ("test 2"));
-       pageModel.addAttribute("events", list);
+       pageModel.addAttribute("events", localEventService.getAll());
         return "event";
     }
 }
