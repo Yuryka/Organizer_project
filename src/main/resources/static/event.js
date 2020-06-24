@@ -1,26 +1,26 @@
 $(document).ready(() => {
-    let editMovieId = null;
+    let editNoteId = null;
 
     $('#modal-save-button').click(() => {
-        const title = $('#modal-movie-title').val();
-        const year = $('#modal-movie-year').val();
-        const rating = $('#modal-movie-rating').val();
+        const note = $('#modal-event-note').val();
+        const date = $('#modal-event-date').val();
+        const checked = $('#modal-event-checked').val();
         const body = {
-            title: title,
-            year: year,
-            rating: rating
+            note: note,
+            date: date,
+            checked: checked
         };
 
-        if (editMovieId === null) {
-            addNewMovie(body);
+        if (editNoteId === null) {
+            addNewNote(body);
         } else {
-            editMovie(editMovieId, body);
+            editNote(editNoteId, body);
         }
     });
 
     $('.fa-trash-alt').click(function () {
-        const movieId = this.parentElement.id;
-        fetch('/api/organizer/' + movieId, {
+        const eventId = this.parentElement.id;
+        fetch('/api/organizer/' + eventId, {
             method: 'delete'
         }).then(response => location.reload());
     });
@@ -29,16 +29,16 @@ $(document).ready(() => {
         editMovieId = this.parentElement.id;
 
         const row = this.parentElement.parentElement.parentElement;
-        const title = row.children[0].innerText;
-        const year = row.children[1].innerText;
-        const rating = row.children[2].innerText;
+        const note = row.children[0].innerText;
+        const date = row.children[1].innerText;
+        const checked = row.children[2].innerText;
 
-        $('#modal-movie-title').val(title);
-        $('#modal-movie-year').val(year);
-        $('#modal-movie-rating').val(rating);
+        $('#modal-event-note').val(note);
+        $('#modal-event-date').val(date);
+        $('#modal-event-checked').val(checked);
     });
 
-    function addNewMovie(body) {
+    function addNewNote(body) {
         fetch('/api/organizer', {
             method: 'post',
             body: JSON.stringify(body),
@@ -50,7 +50,7 @@ $(document).ready(() => {
         });
     }
 
-    function editMovie(id, body) {
+    function editNote(id, body) {
         fetch('/api/organizer/' + id, {
             method: 'put',
             body: JSON.stringify(body),
@@ -59,9 +59,7 @@ $(document).ready(() => {
             }
         }).then(() => {
             location.reload();
-            editMovieId = null;
+            editNoteId = null;
         });
     }
-
-
 })

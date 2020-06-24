@@ -23,9 +23,9 @@ public class Curs25MoviesApplication {
     CommandLineRunner atStartup(MovieRepository movieRepository, EventRepository eventRepository) {
         return args -> {
             eventRepository.saveAll(List.of(
-                    new Event("pick up kid", new Date(2020,6,24), true),
-                    new Event("feed the cat", new Date(2020, 6, 26), false),
-                    new Event("buy sausage and beer", new Date(2020, 6, 11), true)
+                    new Event("pick up kid", new Date(120,5,24), true),
+                    new Event("feed the cat", new Date(120, 5, 26), false),
+                    new Event("buy sausage and beer", new Date(120, 6, 11), true)
                     ));
 //TODO remove later movierepository
 
