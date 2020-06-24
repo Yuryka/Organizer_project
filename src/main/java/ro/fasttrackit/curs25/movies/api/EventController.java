@@ -2,9 +2,8 @@ package ro.fasttrackit.curs25.movies.api;
 
 import org.springframework.web.bind.annotation.*;
 import ro.fasttrackit.curs25.movies.domain.Event;
-import ro.fasttrackit.curs25.movies.domain.Movie;
 import ro.fasttrackit.curs25.movies.service.EventService;
-import ro.fasttrackit.curs25.movies.service.MovieService;
+
 
 @RestController
 @RequestMapping("api/organizer")
