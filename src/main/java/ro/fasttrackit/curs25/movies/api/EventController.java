@@ -1,30 +1,32 @@
 package ro.fasttrackit.curs25.movies.api;
 
 import org.springframework.web.bind.annotation.*;
+import ro.fasttrackit.curs25.movies.domain.Event;
 import ro.fasttrackit.curs25.movies.domain.Movie;
+import ro.fasttrackit.curs25.movies.service.EventService;
 import ro.fasttrackit.curs25.movies.service.MovieService;
 
 @RestController
 @RequestMapping("api/organizer")
 public class EventController {
-    private final MovieService movieService;
+    private final EventService eventService;
 
-    public EventController(final MovieService movieService) {
-        this.movieService = movieService;
+    public EventController(final EventService eventService) {
+        this.eventService = eventService;
     }
 
     @PostMapping
-    Movie addMovie(@RequestBody Movie newMovie) {
-        return movieService.addMovie(newMovie);
+    Event addEvent(@RequestBody Event newEvent) {
+        return eventService.addEvent(newEvent);
     }
 
     @PutMapping("{id}")
-    Movie replaceMovie(@PathVariable int id, @RequestBody Movie movie) {
-        return movieService.replaceMovie(id, movie);
+    Event replaceEvent(@PathVariable int id, @RequestBody Event event) {
+        return eventService.replaceEvent(id, event);
     }
 
     @DeleteMapping("{id}")
-    Movie deleteMovie(@PathVariable int id) {
-        return movieService.deleteMovie(id);
+    Event deleteEvent(@PathVariable int id) {
+        return eventService.deleteEvent(id);
     }
 }

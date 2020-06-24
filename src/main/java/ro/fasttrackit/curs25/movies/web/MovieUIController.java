@@ -10,10 +10,10 @@ import ro.fasttrackit.curs25.movies.service.MovieService;
 import java.util.Optional;
 
 @Controller
-public class MovieUIController {
+public class EventUIController {
     private final MovieService movieService;
 
-    public MovieUIController(final MovieService movieService) {
+    public EventUIController(final MovieService movieService) {
         this.movieService = movieService;
     }
 
