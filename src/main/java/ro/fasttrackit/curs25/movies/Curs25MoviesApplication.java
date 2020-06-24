@@ -9,6 +9,7 @@ import ro.fasttrackit.curs25.movies.domain.Movie;
 import ro.fasttrackit.curs25.movies.repository.EventRepository;
 import ro.fasttrackit.curs25.movies.repository.MovieRepository;
 
+import java.util.Date;
 import java.util.List;
 
 @SpringBootApplication
@@ -22,9 +23,9 @@ public class Curs25MoviesApplication {
     CommandLineRunner atStartup(MovieRepository movieRepository, EventRepository eventRepository) {
         return args -> {
             eventRepository.saveAll(List.of(
-                    new Event("pickup kid"),
-                    new Event("feed the cat"),
-                    new Event("buy sausage and beer")
+                    new Event("pick up kid", new Date(2020,6,24), true),
+                    new Event("feed the cat", new Date(2020, 6, 26), false),
+                    new Event("buy sausage and beer", new Date(2020, 6, 11), true)
                     ));
 //TODO remove later movierepository
 

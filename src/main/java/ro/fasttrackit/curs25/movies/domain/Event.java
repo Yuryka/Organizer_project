@@ -13,23 +13,16 @@ public class Event {
     private Integer id;
     private String note;
     private Date date;
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-
-    //TODO private Date date + private Boolean checked
+    private Boolean checked;
 
     public Event() {
+
     }
 
-    public Event(final String note) {
+    public Event(final String note, final Date date, final Boolean checked) {
         this.note = note;
+        this.date = date;
+        this.checked = checked;
     }
 
     public Integer getId() {
@@ -48,14 +41,32 @@ public class Event {
         this.note = note;
     }
 
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Boolean getChecked() {
+        return checked;
+    }
+
+    public void setChecked(Boolean checked) {
+        this.checked = checked;
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         final Event event = (Event) o;
-        return
+        return date == event.date &&
+                Boolean.compare(event.checked, checked)== 0 &&
                 Objects.equals(id, event.id) &&
-                        Objects.equals(note, event.note);
+                Objects.equals(note, event.note);
+
     }
 
     @Override
@@ -68,7 +79,9 @@ public class Event {
         return "Event{" +
                 "id=" + id +
                 ", note= " + note +
+                ", date " + date +
+                ", checked " + checked +
                 '}';
-        //TODO cheched,date
+
     }
 }
