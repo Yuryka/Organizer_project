@@ -1,7 +1,7 @@
-package ro.fasttrackit.curs25.movies.repository;
+package ro.fasttrackit.reminder.app.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import ro.fasttrackit.curs25.movies.domain.Event;
+import ro.fasttrackit.reminder.app.domain.Event;
 
 public interface EventRepository extends JpaRepository<Event, Integer> {
 }

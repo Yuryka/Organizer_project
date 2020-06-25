@@ -1,8 +1,8 @@
-package ro.fasttrackit.curs25.movies.service;
+package ro.fasttrackit.reminder.app.service;
 
 import org.springframework.stereotype.Service;
-import ro.fasttrackit.curs25.movies.domain.Event;
-import ro.fasttrackit.curs25.movies.repository.EventRepository;
+import ro.fasttrackit.reminder.app.domain.Event;
+import ro.fasttrackit.reminder.app.repository.EventRepository;
 
 import java.util.List;
 import java.util.Optional;

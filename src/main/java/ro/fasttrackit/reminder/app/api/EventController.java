@@ -1,8 +1,8 @@
-package ro.fasttrackit.curs25.movies.api;
+package ro.fasttrackit.reminder.app.api;
 
 import org.springframework.web.bind.annotation.*;
-import ro.fasttrackit.curs25.movies.domain.Event;
-import ro.fasttrackit.curs25.movies.service.EventService;
+import ro.fasttrackit.reminder.app.domain.Event;
+import ro.fasttrackit.reminder.app.service.EventService;
 
 
 @RestController

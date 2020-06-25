@@ -1,4 +1,4 @@
-package ro.fasttrackit.curs25.movies.domain;
+package ro.fasttrackit.reminder.app.domain;
 
 
 import javax.persistence.Entity;

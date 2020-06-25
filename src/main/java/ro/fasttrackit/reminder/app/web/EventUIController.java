@@ -1,11 +1,11 @@
-package ro.fasttrackit.curs25.movies.web;
+package ro.fasttrackit.reminder.app.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import ro.fasttrackit.curs25.movies.domain.Event;
-import ro.fasttrackit.curs25.movies.service.EventService;
+import ro.fasttrackit.reminder.app.domain.Event;
+import ro.fasttrackit.reminder.app.service.EventService;
 
 import java.util.Optional;
 

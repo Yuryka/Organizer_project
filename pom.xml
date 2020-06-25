@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>ro.fasttrackit</groupId>
-	<artifactId>curs25-movies</artifactId>
+	<artifactId>remider-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>curs25-movies</name>
-	<description>Sample Project Movies</description>
+	<name>remider-app</name>
+	<description>Organizer project</description>
 
 	<properties>
 		<java.version>11</java.version>
