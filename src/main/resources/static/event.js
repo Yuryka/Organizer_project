@@ -28,6 +28,7 @@ $(document).ready(() => {
     });
 
     $('.fa-edit').click(function () {
+        $('#modal-title').text("Edit event");
         editEventId = this.parentElement.id;
 
         const row = this.parentElement.parentElement.parentElement;
@@ -63,6 +64,7 @@ $(document).ready(() => {
                 'Content-Type': 'application/json'
             }
         }).then(() => {
+        $('#modal-title').text("Add event");
             location.reload();
             editEventId = null;
         });
