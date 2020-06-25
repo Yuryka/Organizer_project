@@ -43,11 +43,11 @@
             <td>
                 <a class="nav-link text-dark" data-th-href="'/events/'+${event.id}" data-th-text="${event.note}"></a>
             </td>
-            <td data-th-text="${event.date}"></td>
+            <td data-th-text="${#dates.format(event.date, 'dd-MMM-yyyy')}"></td>
             <td data-th-text="${event.checked}"></td>
             <td>
                 <div data-th-id="${event.id}" style="cursor: pointer">
-                    <i class="fas fa-edit mr-2" data-target="#addEventModal" data-toggle="modal"></i>
+                    <i class="fas fa-edit mr-3" data-target="#addEventModal" data-toggle="modal"></i>
                     <i class="fas fa-trash-alt"></i>
                 </div>
             </td>
@@ -70,7 +70,7 @@
                 <div class="d-flex">
                     <div class="form-group mr-3">
                         <label for="modal-event-date">Date</label>
-                        <input class="form-control" id="modal-event-date" max="2100, 12, 12" min="1900, 00, 00" type="date"/>
+                        <input class="form-control" id="modal-event-date" max="2100, 12, 12" min="1900, 00, 00" type="datetime-local"/>
                     </div>
                     <div class="form-group">
                         <label for="modal-event-checked">Checked</label>
@@ -82,6 +82,26 @@
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 <button class="btn btn-primary" id="modal-save-button" type="button">Save</button>
             </div>
+        </div>
+    </div>
+</div>
+<div class="container" data-th-if="${showDetails}">
+    <hr>
+    <div class="card">
+        <div class="card-header" data-th-text="${selectedEvent.note}"></div>
+        <div class="card-body">
+            <p>Year: <span data-th-text="${selectedEvent.note}"></span></p>
+            <p>Rating: <span data-th-text="${selectedEvent.date}"></span></p>
+            <div style="background-color:Tomato;" data-th-if = "${!selectedEvent.checked}">
+                Don't Forget Me!
+            </div>
+            <div style="background-color:Green;" data-th-if = "${selectedEvent.checked}">
+                Bravoo - Well done!
+            </div>
+        </div>
+
+        <div class="card-footer">
+            <button class="btn btn-secondary">Close</button>
         </div>
     </div>
 </div>
