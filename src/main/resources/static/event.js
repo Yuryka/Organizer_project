@@ -3,14 +3,14 @@ $(document).ready(() => {
 
     $('#modal-save-button').click(() => {
         const note = $('#modal-event-note').val();
-        const note = $('#modal-event-details').val();
+        const details = $('#modal-event-details').val();
         const date = $('#modal-event-date').val();
         const checked = $('#modal-event-checked')[0].checked;
                 const body = {
             note: note,
-            details: details,
             date: date,
             checked: checked,
+            details: details,
             };
 
         if (editEventId === null) {
@@ -30,7 +30,7 @@ $(document).ready(() => {
     $('.fa-edit').click(function () {
         editEventId = this.parentElement.id;
 
-        const row = this.parentElement.parentElement.parentElement.parentElement;
+        const row = this.parentElement.parentElement.parentElement;
         const note = row.children[0].innerText;
         const details = row.children[1].innerText;
         const date = row.children[2].innerText;

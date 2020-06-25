@@ -84,7 +84,7 @@ public class Event {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, note, date, checked, details);
+        return Objects.hash(id, note, details, date, checked);
     }
 
     @Override
@@ -92,9 +92,9 @@ public class Event {
         return "Event{" +
                 "id=" + id +
                 ", note= " + note +
+                ", details " + details +
                 ", date " + date +
                 ", checked " + checked +
-                ", details " + details +
                 '}';
 
     }
