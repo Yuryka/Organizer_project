@@ -38,7 +38,7 @@
         <tbody>
         <tr data-th-each="event : ${events}">
             <td>
-                <a class="nav-link text-dark" data-th-href="'/events/'+${event.id}" data-th-text="${event.note}"></a>
+                <a class="nav-link text-dark" data-th-href="'/events/'+${event.id}" data-th-text="${event.note}" data-th-attr="details=${event.details}"></a>
             </td>
             <td data-th-text="${#dates.format(event.date, 'dd-MMM-yyyy')}" data-th-id="${event.date}"></td>
             <td data-th-text="${event.checked}"></td>
