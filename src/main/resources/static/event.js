@@ -32,14 +32,14 @@ $(document).ready(() => {
 
         const row = this.parentElement.parentElement.parentElement;
         const note = row.children[0].innerText;
-        const details = row.children[1].innerText;
-        const date = row.children[2].innerText;
-        const checked = row.children[3].innerText;
+        //const details = row.children[1].innerText;
+        const date = row.children[1].id;
+        const checked = row.children[2].innerText;
 
 
         $('#modal-event-note').val(note);
-        $('#modal-event-details').val(details);
-        $('#modal-event-date').val(date);
+        //$('#modal-event-details').val(details);
+        $('#modal-event-date').val(date.replace(' ', 'T'));
         $('#modal-event-checked')[0].checked = (checked == 'true');
             });
 

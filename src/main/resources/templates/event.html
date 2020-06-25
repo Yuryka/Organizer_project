@@ -40,7 +40,7 @@
             <td>
                 <a class="nav-link text-dark" data-th-href="'/events/'+${event.id}" data-th-text="${event.note}"></a>
             </td>
-            <td data-th-text="${#dates.format(event.date, 'dd-MMM-yyyy')}"></td>
+            <td data-th-text="${#dates.format(event.date, 'dd-MMM-yyyy')}" data-th-id="${event.date}"></td>
             <td data-th-text="${event.checked}"></td>
             <td>
                 <div data-th-id="${event.id}" style="cursor: pointer">
