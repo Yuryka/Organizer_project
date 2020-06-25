@@ -21,9 +21,9 @@ public class OrganizerApplication {
     CommandLineRunner atStartup(EventRepository eventRepository) {
         return args -> {
             eventRepository.saveAll(List.of(
-                    new Event("Pick up the kid", new Date(120, 5, 24), true),
-                    new Event("Feed the cat", new Date(120, 5, 26), false),
-                    new Event("Buy groceries (sausages and beers)", new Date(120, 6, 11), true)
+                    new Event("Pick up the kid", "from school", new Date(120, 5, 24), true),
+                    new Event("Buy groceries", "Selgros sausages and Csiki beer", new Date(120, 5, 26), false),
+                    new Event("Take exam", "Succeed", new Date(120, 6, 11), true)
             ));
 
         };

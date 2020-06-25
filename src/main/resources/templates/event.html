@@ -64,7 +64,10 @@
                     <label for="modal-event-note">Note</label>
                     <input type="text" id="modal-event-note" class="form-control"/>
                 </div>
-
+                <div class="form-group">
+                    <label for="modal-event-details">Details</label>
+                    <input type="text" id="modal-event-details" class="form-control"/>
+                </div>
                 <div class="form-group mr-3">
                     <label for="modal-event-date">Date</label>
                     <input class="form-control" id="modal-event-date" max="2100, 12, 12" min="1900, 00, 00"
@@ -89,12 +92,13 @@
         <div class="card-header" data-th-text="${selectedEvent.note}"></div>
         <div class="card-body">
             <p>Note: <span data-th-text="${selectedEvent.note}"></span></p>
+            <p>Details: <span data-th-text="${selectedEvent.details}"></span></p>
             <p>Date: <span data-th-text="${selectedEvent.date}"></span></p>
-            <div style="background-color:Tomato;" data-th-if="${!selectedEvent.checked}">
-                Don't Forget Me!
+            <div style="background-color:Red;" data-th-if="${!selectedEvent.checked}">
+                Only me left? Don't Forget Me!
             </div>
             <div style="background-color:Green;" data-th-if="${selectedEvent.checked}">
-                Bravoo - Well done!
+                Nice being organized! Well done to you dear!
             </div>
         </div>
 

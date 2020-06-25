@@ -3,13 +3,15 @@ $(document).ready(() => {
 
     $('#modal-save-button').click(() => {
         const note = $('#modal-event-note').val();
+        const note = $('#modal-event-details').val();
         const date = $('#modal-event-date').val();
         const checked = $('#modal-event-checked')[0].checked;
-        const body = {
+                const body = {
             note: note,
+            details: details,
             date: date,
-            checked: checked
-        };
+            checked: checked,
+            };
 
         if (editEventId === null) {
             addNewNote(body);
@@ -28,15 +30,18 @@ $(document).ready(() => {
     $('.fa-edit').click(function () {
         editEventId = this.parentElement.id;
 
-        const row = this.parentElement.parentElement.parentElement;
+        const row = this.parentElement.parentElement.parentElement.parentElement;
         const note = row.children[0].innerText;
-        const date = row.children[1].innerText;
-        const checked = row.children[2].innerText;
+        const details = row.children[1].innerText;
+        const date = row.children[2].innerText;
+        const checked = row.children[3].innerText;
+
 
         $('#modal-event-note').val(note);
+        $('#modal-event-details').val(details);
         $('#modal-event-date').val(date);
         $('#modal-event-checked')[0].checked = (checked == 'true');
-    });
+            });
 
     function addNewNote(body) {
         fetch('/api/organizer', {

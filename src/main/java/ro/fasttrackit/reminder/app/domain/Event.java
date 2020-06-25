@@ -13,15 +13,18 @@ public class Event {
     @GeneratedValue
     private Integer id;
     private String note;
+    private String details;
     private Date date;
     private Boolean checked;
+
 
     public Event() {
 
     }
 
-    public Event(final String note, final Date date, final Boolean checked) {
+    public Event(final String note, final String details, final Date date, final Boolean checked) {
         this.note = note;
+        this.details = details;
         this.date = date;
         this.checked = checked;
     }
@@ -58,6 +61,14 @@ public class Event {
         this.checked = checked;
     }
 
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
@@ -66,13 +77,14 @@ public class Event {
         return date == event.date &&
                 Boolean.compare(event.checked, checked) == 0 &&
                 Objects.equals(id, event.id) &&
-                Objects.equals(note, event.note);
+                Objects.equals(note, event.note) &&
+                Objects.equals(details, event.details);
 
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, note, date, checked);
+        return Objects.hash(id, note, date, checked, details);
     }
 
     @Override
@@ -82,7 +94,10 @@ public class Event {
                 ", note= " + note +
                 ", date " + date +
                 ", checked " + checked +
+                ", details " + details +
                 '}';
 
     }
+
+
 }
