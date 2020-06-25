@@ -1,20 +1,20 @@
 $(document).ready(() => {
-    let editNoteId = null;
+    let editEventId = null;
 
     $('#modal-save-button').click(() => {
         const note = $('#modal-event-note').val();
         const date = $('#modal-event-date').val();
-        const checked = $('#modal-event-checked').val();
+        const checked = $('#modal-event-checked')[0].checked;
         const body = {
             note: note,
             date: date,
             checked: checked
         };
 
-        if (editNoteId === null) {
+        if (editEventId === null) {
             addNewNote(body);
         } else {
-            editNote(editNoteId, body);
+            editNote(editEventId, body);
         }
     });
 
@@ -26,7 +26,7 @@ $(document).ready(() => {
     });
 
     $('.fa-edit').click(function () {
-        editMovieId = this.parentElement.id;
+        editEventId = this.parentElement.id;
 
         const row = this.parentElement.parentElement.parentElement;
         const note = row.children[0].innerText;
@@ -35,7 +35,7 @@ $(document).ready(() => {
 
         $('#modal-event-note').val(note);
         $('#modal-event-date').val(date);
-        $('#modal-event-checked').val(checked);
+        $('#modal-event-checked')[0].checked = (checked == 'true');
     });
 
     function addNewNote(body) {
@@ -59,7 +59,7 @@ $(document).ready(() => {
             }
         }).then(() => {
             location.reload();
-            editNoteId = null;
+            editEventId = null;
         });
     }
 })

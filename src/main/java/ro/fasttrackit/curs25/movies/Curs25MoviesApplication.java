@@ -27,6 +27,7 @@ public class Curs25MoviesApplication {
                     new Event("feed the cat", new Date(120, 5, 26), false),
                     new Event("buy sausage and beer", new Date(120, 6, 11), true)
                     ));
+
 //TODO remove later movierepository
 
             movieRepository.saveAll(List.of(

@@ -1,5 +1,6 @@
 package ro.fasttrackit.curs25.movies.domain;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -63,7 +64,7 @@ public class Event {
         if (o == null || getClass() != o.getClass()) return false;
         final Event event = (Event) o;
         return date == event.date &&
-                Boolean.compare(event.checked, checked)== 0 &&
+                Boolean.compare(event.checked, checked) == 0 &&
                 Objects.equals(id, event.id) &&
                 Objects.equals(note, event.note);
 
@@ -71,7 +72,7 @@ public class Event {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, note);
+        return Objects.hash(id, note, date, checked);
     }
 
     @Override
