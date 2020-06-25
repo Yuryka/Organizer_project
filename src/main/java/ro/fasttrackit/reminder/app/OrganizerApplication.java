@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Bean;
 import ro.fasttrackit.reminder.app.domain.Event;
 import ro.fasttrackit.reminder.app.repository.EventRepository;
 
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.Date;
 import java.util.List;
 
@@ -21,11 +23,15 @@ public class OrganizerApplication {
     CommandLineRunner atStartup(EventRepository eventRepository) {
         return args -> {
             eventRepository.saveAll(List.of(
-                    new Event("Pick up the kid", "from school", new Date(120, 5, 24), true),
-                    new Event("Buy groceries", "Selgros sausages and Csiki beer", new Date(120, 5, 26), false),
-                    new Event("Take exam", "Succeed", new Date(120, 6, 11), true)
+                    new Event("Pick up the kid", "from school", toDate(2019, 10, 11, 12, 11), true),
+                    new Event("Buy groceries", "Selgros sausages and Csiki beer", toDate(120, 5, 26,18,20), false),
+                    new Event("Take exam", "Succeed", toDate(120, 6, 11,19,30), true)
             ));
 
         };
+    }
+
+    private Date toDate(int year, int month, int day, int hour, int minute) {
+        return new Date(LocalDateTime.of(year, month, day, hour, minute).toInstant(ZoneOffset.UTC).toEpochMilli());
     }
 }

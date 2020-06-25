@@ -34,7 +34,7 @@ $(document).ready(() => {
         const row = this.parentElement.parentElement.parentElement;
         const note = row.children[0].innerText;
         const details = row.children[0].children[0].getAttribute('details');
-        const date = row.children[1].id;
+        const date = row.children[1].getAttribute('fulltime');
         const checked = row.children[2].innerText;
 
 
