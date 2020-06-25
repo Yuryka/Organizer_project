@@ -64,17 +64,17 @@
                     <label for="modal-event-note">Note</label>
                     <input type="text" id="modal-event-note" class="form-control"/>
                 </div>
-                <div class="d-flex">
-                    <div class="form-group mr-3">
-                        <label for="modal-event-date">Date</label>
-                        <input class="form-control" id="modal-event-date" max="2100, 12, 12" min="1900, 00, 00"
-                               type="datetime-local"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="modal-event-checked">Checked</label>
-                        <input class="form-control" id="modal-event-checked" max="false" min="true" type="checkbox">
-                    </div>
+
+                <div class="form-group mr-3">
+                    <label for="modal-event-date">Date</label>
+                    <input class="form-control" id="modal-event-date" max="2100, 12, 12" min="1900, 00, 00"
+                           type="datetime-local"/>
                 </div>
+                <div class="form-group">
+                    <label for="modal-event-checked">Checked</label>
+                    <input class="form-control" id="modal-event-checked" max="false" min="true" type="checkbox">
+                </div>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -88,8 +88,8 @@
     <div class="card">
         <div class="card-header" data-th-text="${selectedEvent.note}"></div>
         <div class="card-body">
-            <p>Year: <span data-th-text="${selectedEvent.note}"></span></p>
-            <p>Rating: <span data-th-text="${selectedEvent.date}"></span></p>
+            <p>Note: <span data-th-text="${selectedEvent.note}"></span></p>
+            <p>Date: <span data-th-text="${selectedEvent.date}"></span></p>
             <div style="background-color:Tomato;" data-th-if="${!selectedEvent.checked}">
                 Don't Forget Me!
             </div>
