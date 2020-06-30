@@ -24,17 +24,20 @@ public class OrganizerApplication {
     @Bean
     CommandLineRunner atStartup(EventRepository eventRepository, UserRepository userRepository) {
         return args -> {
-            User Gyorgy = new User("Gyuri");
+            User Mama = new User("Maria");
+            User Tata = new User("Ion");
             userRepository.saveAll(List.of(
-                    new User("Pista"),
-                    Gyorgy,
-                    new User("Jeno")
+                    Tata,
+                    Mama,
+                    new User("Erik"),
+                    new User("Alex"),
+                    new User("Gyuri")
             ));
 
             eventRepository.saveAll(List.of(
                     new Event("Pick up the kid", "from school", toDate(2019, 10, 11, 12, 11), true),
-                    new Event("Buy groceries", "Selgros sausages and Csiki beer", toDate(120, 5, 26, 18, 20), false, Gyorgy),
-                    new Event("Take exam", "Succeed", toDate(120, 6, 11, 19, 30), true)
+                    new Event("Buy groceries", "Selgros sausages and Csiki beer", toDate(120, 5, 26, 18, 20), false, Mama),
+                    new Event("Take exam", "Succeed", toDate(120, 6, 11, 19, 30), true, Tata)
             ));
 
 

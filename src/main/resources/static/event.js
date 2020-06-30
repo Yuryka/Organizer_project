@@ -7,7 +7,7 @@ $(document).ready(() => {
         const date = $('#modal-event-date').val();
         const checked = $('#modal-event-checked')[0].checked;
         const userid = $('#modal-event-user').val();
-        let userName = $('#modal-event-user:selected').text();
+        const userName = $('#modal-event-user:selected').text();
 
 
         let body = {
