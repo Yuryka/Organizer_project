@@ -17,6 +17,9 @@ public class User {
     @OneToMany (mappedBy = "responsible")
     private List<Event> events;
 
+    public User ()
+    {}
+
     public User(String nickName) {
         this.nickName = nickName;
     }

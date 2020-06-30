@@ -32,6 +32,7 @@
             <th style="background-color:LightGreen;">Note</th>
             <th style="background-color:MediumSeaGreen;">Date</th>
             <th style="background-color:Green;">Checked</th>
+            <th> Responsible</th>
             <th></th>
         </tr>
         </thead>
@@ -42,10 +43,11 @@
                    data-th-attr="details=${event.details}"></a>
             </td>
             <td data-th-text="${#dates.format(event.date, 'dd-MMM-yyyy')}" data-th-attr="fulltime=${event.date}"></td>
-            <td>
+                        <td>
                 <div data-th-if="${event.checked}" class="fas fa-check-square"></div>
                 <div data-th-if="${!event.checked}" class="fas fa-exclamation-circle"></div>
             </td>
+            <td data-th-text="${event.responsible?.nickName}"></td>
             <td>
                 <div data-th-id="${event.id}" style="cursor: pointer">
                     <i class="fas fa-edit mr-3" data-target="#addEventModal" data-toggle="modal"></i>
@@ -98,6 +100,7 @@
         <div class="card-body">
             <p>Note: <span data-th-text="${selectedEvent.note}"></span></p>
             <p>Details: <span data-th-text="${selectedEvent.details}"></span></p>
+            <p>Who's job is it?: <span data-th-text="${selectedEvent.responsible?.nickName}"></span></p>
             <p>Date: <span data-th-text="${selectedEvent.date}"></span></p>
             <div style="background-color:Red;" data-th-if="${!selectedEvent.checked}">
                 Only me left? Don't Forget Me!

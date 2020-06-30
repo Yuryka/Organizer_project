@@ -19,6 +19,8 @@ public class Event {
     @JoinColumn (name = "user_id")
     private User responsible;
 
+    public Event ()
+    {}
 
     public Event(final String note, final String details, final Date date, final Boolean checked) {
         this.note = note;
