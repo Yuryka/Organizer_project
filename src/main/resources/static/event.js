@@ -6,11 +6,18 @@ $(document).ready(() => {
         const details = $('#modal-event-details').val();
         const date = $('#modal-event-date').val();
         const checked = $('#modal-event-checked')[0].checked;
-                const body = {
+        const userid = $('#modal-event-user').val();
+        const userName = $('#modal-event-user:selected').text();
+
+        const body = {
             note: note,
             date: date,
             checked: checked,
             details: details,
+            responsible: {
+                id: userid,
+                nickName:userName
+                }
             };
 
         if (editEventId === null) {
