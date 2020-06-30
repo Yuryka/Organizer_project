@@ -7,9 +7,10 @@ $(document).ready(() => {
         const date = $('#modal-event-date').val();
         const checked = $('#modal-event-checked')[0].checked;
         const userid = $('#modal-event-user').val();
-        const userName = $('#modal-event-user:selected').text();
+        let userName = $('#modal-event-user:selected').text();
 
-        const body = {
+
+        let body = {
             note: note,
             date: date,
             checked: checked,
@@ -19,6 +20,15 @@ $(document).ready(() => {
                 nickName:userName
                 }
             };
+
+        if(userid === "null"){
+            body = {
+                        note: note,
+                        date: date,
+                        checked: checked,
+                        details: details
+                        };
+        }
 
         if (editEventId === null) {
             addNewNote(body);

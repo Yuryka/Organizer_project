@@ -82,6 +82,7 @@
                 <div class="form-group mr-3">
                     <label for="modal-event-user">Responsible</label>
                     <select id="modal-event-user" class="form-control">
+                        <option value="null"> - </option>
                         <option data-th-each="user : ${users}" data-th-value="${user.id}"
                                 data-th-text="${user.nickName}"></option>
                     </select>
