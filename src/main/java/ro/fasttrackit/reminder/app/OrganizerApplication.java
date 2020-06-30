@@ -5,7 +5,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import ro.fasttrackit.reminder.app.domain.Event;
+import ro.fasttrackit.reminder.app.domain.User;
 import ro.fasttrackit.reminder.app.repository.EventRepository;
+import ro.fasttrackit.reminder.app.repository.UserRepository;
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
@@ -20,12 +22,17 @@ public class OrganizerApplication {
     }
 
     @Bean
-    CommandLineRunner atStartup(EventRepository eventRepository) {
+    CommandLineRunner atStartup(EventRepository eventRepository, UserRepository userRepository) {
         return args -> {
             eventRepository.saveAll(List.of(
                     new Event("Pick up the kid", "from school", toDate(2019, 10, 11, 12, 11), true),
-                    new Event("Buy groceries", "Selgros sausages and Csiki beer", toDate(120, 5, 26,18,20), false),
-                    new Event("Take exam", "Succeed", toDate(120, 6, 11,19,30), true)
+                    new Event("Buy groceries", "Selgros sausages and Csiki beer", toDate(120, 5, 26, 18, 20), false),
+                    new Event("Take exam", "Succeed", toDate(120, 6, 11, 19, 30), true)
+            ));
+            userRepository.saveAll(List.of(
+                    new User("Pista"),
+                    new User("Gyuri"),
+                    new User("Jeno")
             ));
 
         };
