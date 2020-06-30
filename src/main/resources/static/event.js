@@ -43,13 +43,17 @@ $(document).ready(() => {
         const details = row.children[0].children[0].getAttribute('details');
         const date = row.children[1].getAttribute('fulltime');
         const checked = row.children[2].innerText;
-
+        const userName = row.children[3].innerText;
 
         $('#modal-event-note').val(note);
         $('#modal-event-details').val(details);
         $('#modal-event-date').val(date.replace(' ', 'T'));
         $('#modal-event-checked')[0].checked = (checked == 'true');
-            });
+        $('#modal-event-user option').filter(function(){
+            return $(this).text()==userName;
+        }).prop('selected', true);
+
+     });
 
     function addNewNote(body) {
         fetch('/api/organizer', {
