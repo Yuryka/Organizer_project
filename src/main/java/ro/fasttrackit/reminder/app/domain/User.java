@@ -3,6 +3,8 @@ package ro.fasttrackit.reminder.app.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -11,6 +13,9 @@ public class User {
     @GeneratedValue
     private Integer id;
     private String nickName;
+
+    @OneToMany (mappedBy = "responsible")
+    private List<Event> events;
 
     public User(String nickName) {
         this.nickName = nickName;
@@ -31,6 +36,14 @@ public class User {
 
     public void setNickName(String nickName) {
         this.nickName = nickName;
+    }
+
+    public List<Event> getEvents() {
+        return events;
+    }
+
+    public void setEvents(List<Event> events) {
+        this.events = events;
     }
 
     @Override
@@ -57,4 +70,6 @@ public class User {
                 '}';
 
     }
+
+
 }

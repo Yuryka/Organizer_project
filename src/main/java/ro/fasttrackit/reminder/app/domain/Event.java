@@ -1,9 +1,7 @@
 package ro.fasttrackit.reminder.app.domain;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
 
@@ -17,16 +15,24 @@ public class Event {
     private Date date;
     private Boolean checked;
 
+    @ManyToOne
+    @JoinColumn (name = "user_id")
+    private User responsible;
 
-    public Event() {
-
-    }
 
     public Event(final String note, final String details, final Date date, final Boolean checked) {
         this.note = note;
         this.details = details;
         this.date = date;
         this.checked = checked;
+    }
+
+    public Event(final String note, final String details, final Date date, final Boolean checked, final User responsible) {
+        this.note = note;
+        this.details = details;
+        this.date = date;
+        this.checked = checked;
+        this.responsible = responsible;
     }
 
     public Integer getId() {
@@ -67,6 +73,14 @@ public class Event {
 
     public void setDetails(String details) {
         this.details = details;
+    }
+
+    public User getResponsible() {
+        return responsible;
+    }
+
+    public void setResponsible(User responsible) {
+        this.responsible = responsible;
     }
 
     @Override
