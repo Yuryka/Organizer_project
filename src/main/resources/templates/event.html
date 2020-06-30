@@ -38,10 +38,14 @@
         <tbody>
         <tr data-th-each="event : ${events}">
             <td>
-                <a class="nav-link text-dark" data-th-href="'/events/'+${event.id}" data-th-text="${event.note}" data-th-attr="details=${event.details}"></a>
+                <a class="nav-link text-dark" data-th-href="'/events/'+${event.id}" data-th-text="${event.note}"
+                   data-th-attr="details=${event.details}"></a>
             </td>
             <td data-th-text="${#dates.format(event.date, 'dd-MMM-yyyy')}" data-th-attr="fulltime=${event.date}"></td>
-            <td data-th-text="${event.checked}"></td>
+            <td>
+                <div data-th-if="${event.checked}" class="fas fa-check-square"></div>
+                <div data-th-if="${!event.checked}" class="fas fa-exclamation-circle"></div>
+            </td>
             <td>
                 <div data-th-id="${event.id}" style="cursor: pointer">
                     <i class="fas fa-edit mr-3" data-target="#addEventModal" data-toggle="modal"></i>
@@ -56,7 +60,7 @@
     <div class="modal-dialog modal-sm - 3">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id = "modal-title">Add Event</h4>
+                <h4 class="modal-title" id="modal-title">Add Event</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
@@ -77,6 +81,7 @@
                     <label for="modal-event-checked">Checked</label>
 
                     <input class="form-control" id="modal-event-checked" min="true" max="false" type="checkbox">
+                </div>
 
             </div>
             <div class="modal-footer">
