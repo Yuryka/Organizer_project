@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.*;
 import ro.fasttrackit.reminder.app.domain.Event;
 import ro.fasttrackit.reminder.app.service.EventService;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("api/organizer")
@@ -27,5 +29,10 @@ public class EventController {
     @DeleteMapping("{id}")
     Event deleteEvent(@PathVariable int id) {
         return eventService.deleteEvent(id);
+    }
+
+    @GetMapping
+    List<Event> getAll (){
+        return eventService.getAll();
     }
 }

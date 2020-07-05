@@ -25,19 +25,19 @@ public class OrganizerApplication {
     CommandLineRunner atStartup(EventRepository eventRepository, UserRepository userRepository) {
         return args -> {
             User Mama = new User("Maria");
-            User Tata = new User("Ion");
+            User Gyorgy = new User("Gyuri");
             userRepository.saveAll(List.of(
-                    Tata,
                     Mama,
+                    Gyorgy,
                     new User("Erik"),
                     new User("Alex"),
-                    new User("Gyuri")
+                    new User("Raul")
             ));
 
             eventRepository.saveAll(List.of(
-                    new Event("Pick up the kid", "from school", toDate(2019, 10, 11, 12, 11), true),
-                    new Event("Buy groceries", "Selgros sausages and Csiki beer", toDate(120, 5, 26, 18, 20), false, Mama),
-                    new Event("Take exam", "Succeed", toDate(120, 6, 11, 19, 30), true, Tata)
+                    new Event("Pick up the kid", "from school, at 2pm", toDate(2020, 10, 11, 10, 59), true),
+                    new Event("Buy groceries", "Selgros sausages and Csiki beer", toDate(2020, 5, 26, 18, 20), false, Mama),
+                    new Event("Take exam", "Succeed with A+", toDate(2020, 6, 11, 07, 00), true, Gyorgy)
             ));
 
 

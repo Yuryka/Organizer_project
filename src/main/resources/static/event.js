@@ -1,6 +1,10 @@
 $(document).ready(() => {
     let editEventId = null;
 
+    $('#add-event-button').click(() => {
+      clearModal()
+    })
+
     $('#modal-save-button').click(() => {
         const note = $('#modal-event-note').val();
         const details = $('#modal-event-details').val();
@@ -89,5 +93,12 @@ $(document).ready(() => {
             location.reload();
             editEventId = null;
         });
+    }
+    function clearModal(){
+        $('#modal-event-note').val('');
+        $('#modal-event-details').val('');
+        $('#modal-event-date').val(date.replace(' '));
+        $('#modal-event-checked')[0].checked = false;
+
     }
 })

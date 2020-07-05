@@ -13,8 +13,8 @@
 </head>
 <body>
 <div class="container">
-    <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
-        <a href="#" class="navbar-brand">Organizer - healthier than lecithin</a>
+    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color:rgb(140, 133, 90)">
+        <a href="#" class="navbar-brand" >Organizer - healthier than lecithin</a>
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a href="/organizer" class="nav-link">Organizer</a>
@@ -24,15 +24,15 @@
 </div>
 <div class="container">
     <div class="d-flex justify-content-end mt-2">
-        <button class="btn btn-info dropdown-toggle" data-toggle="modal" data-target="#addEventModal">Add Event</button>
+        <button id="add-event-button" class="btn btn-info dropdown-toggle" style = "background-color:rgb(128, 128, 0)" data-toggle="modal" data-target="#addEventModal">Add Event</button>
     </div>
     <table class="table table-striped mt-3">
         <thead>
         <tr>
-            <th style="background-color:LightGreen;">Note</th>
-            <th style="background-color:MediumSeaGreen;">Date</th>
-            <th style="background-color:Green;">Checked</th>
-            <th> Responsible</th>
+            <th style="background-color:rgb(205, 201, 178);">Note</th>
+            <th style="background-color:rgb(195, 190, 162);">Date</th>
+            <th style="background-color:rgb(185, 179, 146);">Checked</th>
+            <th style="background-color:rgb(175, 169, 131);"> Responsible</th>
             <th></th>
         </tr>
         </thead>
@@ -44,8 +44,8 @@
             </td>
             <td data-th-text="${#dates.format(event.date, 'dd-MMM-yyyy')}" data-th-attr="fulltime=${event.date}"></td>
             <td>
-                <div data-th-if="${event.checked}" class="fas fa-check-square"></div>
-                <div data-th-if="${!event.checked}" class="fas fa-exclamation-circle"></div>
+                <div data-th-if="${event.checked}" class="fas fa-check fa-2x" style="color:green;"></div>
+                <div data-th-if="${!event.checked}" class="fas fa fa-times fa-2x" style="color:red;"></div>
             </td>
             <td data-th-text="${event.responsible?.nickName}"></td>
             <td>
@@ -104,16 +104,16 @@
 <div class="container" data-th-if="${showDetails}">
     <hr>
     <div class="card">
-        <div class="card-header" data-th-text="${selectedEvent.note}"></div>
+        <div class="card-header" style="background-color:rgb(205, 201, 178)" data-th-text="${selectedEvent.note}"></div>
         <div class="card-body">
             <p>Note: <span data-th-text="${selectedEvent.note}"></span></p>
             <p>Details: <span data-th-text="${selectedEvent.details}"></span></p>
-            <p>Who's job is it?: <span data-th-text="${selectedEvent.responsible?.nickName}"></span></p>
+            <p>Who's job is it? ->  <span data-th-text="${selectedEvent.responsible?.nickName}"></span></p>
             <p>Date: <span data-th-text="${selectedEvent.date}"></span></p>
-            <div style="background-color:Red;" data-th-if="${!selectedEvent.checked}">
+            <div style="background-color:Red; color:White; font-weight: bold" data-th-if="${!selectedEvent.checked}">
                 Only me left? Don't Forget Me!
             </div>
-            <div style="background-color:Green;" data-th-if="${selectedEvent.checked}">
+            <div style="background-color:Green; color:White; font-style: italic;" data-th-if="${selectedEvent.checked}">
                 Nice being organized! Well done to you dear!
             </div>
         </div>
