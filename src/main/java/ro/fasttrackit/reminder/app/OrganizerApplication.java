@@ -36,7 +36,7 @@ public class OrganizerApplication {
 
             eventRepository.saveAll(List.of(
                     new Event("Pick up the kid", "from school, at 2pm", toDate(2020, 10, 11, 10, 59), true),
-                    new Event("Buy groceries", "Selgros sausages and Csiki beer", toDate(2020, 5, 26, 18, 20), false, Mama),
+                    new Event("Buy groceries", "Sausages, beer, potatoes, tomatoes, water", toDate(2020, 5, 26, 18, 20), false, Mama),
                     new Event("Take exam", "Succeed with A+", toDate(2020, 6, 11, 07, 00), true, Gyorgy)
             ));
 

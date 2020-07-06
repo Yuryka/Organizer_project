@@ -13,8 +13,8 @@
 </head>
 <body>
 <div class="container">
-    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color:rgb(140, 133, 90)">
-        <a href="#" class="navbar-brand" >Organizer - healthier than lecithin</a>
+    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color:rgb(140, 133, 90)" font-family=Bebas Neue>
+        <a href="#" class="navbar-brand">Organizer - healthier than lecithin</a>
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a href="/organizer" class="nav-link">Organizer</a>
@@ -24,7 +24,8 @@
 </div>
 <div class="container">
     <div class="d-flex justify-content-end mt-2">
-        <button id="add-event-button" class="btn btn-info dropdown-toggle" style = "background-color:rgb(128, 128, 0);" data-toggle="modal" data-target="#addEventModal">Add Event</button>
+        <button id="add-event-button" class="btn btn-info dropdown-toggle" style="background-color:rgb(128, 128, 0);" data-toggle="modal" data-target="#addEventModal">Add Event
+        </button>
     </div>
     <table class="table table-striped mt-3">
         <thead>
@@ -82,7 +83,7 @@
                 <div class="form-group mr-3">
                     <label for="modal-event-user">Responsible</label>
                     <select id="modal-event-user" class="form-control">
-                        <option value="null"> - </option>
+                        <option value="null"> -</option>
                         <option data-th-each="user : ${users}" data-th-value="${user.id}"
                                 data-th-text="${user.nickName}"></option>
                     </select>
@@ -104,16 +105,16 @@
 <div class="container" data-th-if="${showDetails}">
     <hr>
     <div class="card">
-        <div class="card-header" style="background-color:rgb(205, 201, 178)" data-th-text="${selectedEvent.note}"></div>
+        <div class="card-header" style="background-color:rgb(205, 201, 178); font-weight: bold;" data-th-text="${selectedEvent.note}"></div>
         <div class="card-body">
             <p>Note: <span data-th-text="${selectedEvent.note}"></span></p>
             <p>Details: <span data-th-text="${selectedEvent.details}"></span></p>
-            <p>Who's job is it? ->  <span data-th-text="${selectedEvent.responsible?.nickName}"></span></p>
+            <p>Who's job is it? -> <span data-th-text="${selectedEvent.responsible?.nickName}"></span></p>
             <p>Date: <span data-th-text="${selectedEvent.date}"></span></p>
-            <div style="background-color:Red; color:White; font-weight: bold" data-th-if="${!selectedEvent.checked}">
+            <div style="background-color:rgb(185, 179, 146); color:Red; font-weight: bold; letter-spacing:2px;" data-th-if="${!selectedEvent.checked}">
                 Only me left? Don't Forget Me!
             </div>
-            <div style="background-color:Green; color:White; font-style: italic;" data-th-if="${selectedEvent.checked}">
+            <div style="background-color:rgb(185, 179, 146); color:Green; font-weight: bold; letter-spacing:1.5px;" data-th-if="${selectedEvent.checked}">
                 Nice being organized! Well done to you dear!
             </div>
         </div>
