@@ -1,9 +1,6 @@
 package ro.fasttrackit.reminder.app.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
 
@@ -14,11 +11,12 @@ public class User {
     private Integer id;
     private String nickName;
 
-    @OneToMany (mappedBy = "responsible")
+    @OneToMany(mappedBy = "responsible", fetch = FetchType.LAZY,
+                cascade = CascadeType.ALL)
     private List<Event> events;
 
-    public User ()
-    {}
+    public User() {
+    }
 
     public User(String nickName) {
         this.nickName = nickName;
